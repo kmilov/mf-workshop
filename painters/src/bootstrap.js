@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
 import App from "./App.vue";
+
 import "./index.css";
 
 const router = new VueRouter({
@@ -11,19 +11,20 @@ const router = new VueRouter({
         component: () => import('./Home.vue'),
     }, {
         path: '/velazquez',
-        
+
     },
     {
         path: '/dali',
+        component: () => import('./Dali.vue'),
     },
     {
         path: '/goya',
-        
+
     }, {
         path: '/miro',
-        
+
     }
-],
+    ],
 });
 
 Vue.use(VueRouter);
