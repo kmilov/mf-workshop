@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: './src/index.js',
@@ -18,6 +19,14 @@ module.exports = {
         ],
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'picasso',
+            filename: 'remotePicasso.js',
+            exposes: {
+                './Picasso': './src/picasso'
+            },
+        
+        }),
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html'
